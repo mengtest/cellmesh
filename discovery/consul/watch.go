@@ -43,7 +43,7 @@ func (self *consulDiscovery) onNameListChanged(u uint64, data interface{}) {
 			plan.Handler = self.onServiceChanged
 			go plan.Run(self.config.Address)
 
-			//log.Debugf("Watch service '%s' begin", svcName)
+			// log.Debugf("Watch service '%s' begin", svcName)
 
 			self.nameWatcher.Store(svcName, plan)
 		}

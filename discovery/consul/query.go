@@ -41,7 +41,7 @@ func (self *consulDiscovery) Query(name string) (ret []*discovery.ServiceDesc) {
 	}
 	return
 
-	//return self.queryFromCache(name)
+	// return self.queryFromCache(name)
 }
 
 func (self *consulDiscovery) QueryAll() (ret []*discovery.ServiceDesc) {

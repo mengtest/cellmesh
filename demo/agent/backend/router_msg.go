@@ -42,12 +42,12 @@ func init() {
 
 	proto.Handle_Agent_Default = func(ev cellnet.Event) {
 
-		//switch msg := ev.Message().(type) {
-		//case *service.ServiceIdentifyACK:
-		//	recoverBackend(ev.Session(), msg.SvcName)
-		//case *cellnet.SessionClosed:
-		//	removeBackend(ev.Session())
-		//}
+		// switch msg := ev.Message().(type) {
+		// case *service.ServiceIdentifyACK:
+		// 	recoverBackend(ev.Session(), msg.SvcName)
+		// case *cellnet.SessionClosed:
+		// 	removeBackend(ev.Session())
+		// }
 	}
 
 	// 从后端服务器收到的消息

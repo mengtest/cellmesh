@@ -12,7 +12,6 @@ type Option struct {
 }
 
 type Discovery interface {
-
 	// 注册服务
 	Register(*ServiceDesc) error
 

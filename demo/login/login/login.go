@@ -11,7 +11,7 @@ import (
 func init() {
 	proto.Handle_Login_LoginREQ = func(ev cellnet.Event) {
 
-		//msg := ev.Message().(*proto.LoginREQ)
+		// msg := ev.Message().(*proto.LoginREQ)
 
 		// TODO 第三方请求验证及信息拉取
 

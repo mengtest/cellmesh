@@ -20,7 +20,7 @@ type consulDiscovery struct {
 	fullCache      []*discovery.ServiceDesc
 	fullCacheGuard sync.RWMutex
 
-	nameWatcher sync.Map //map[string]*watch.Plan
+	nameWatcher sync.Map // map[string]*watch.Plan
 	localSvc    sync.Map // map[string]*localService
 
 	ready bool
@@ -28,7 +28,7 @@ type consulDiscovery struct {
 	notifyMap sync.Map // key=mode+c value=chan struct{}
 
 	// 带缓冲kv
-	metaByKey sync.Map //map[string]*cacheValue
+	metaByKey sync.Map // map[string]*cacheValue
 }
 
 func (self *consulDiscovery) Raw() interface{} {
@@ -105,7 +105,7 @@ func NewDiscovery(config interface{}) discovery.Discovery {
 	self.WaitReady()
 
 	self.startWatch()
-	//self.startRefresh()
+	// self.startRefresh()
 
 	return self
 }
