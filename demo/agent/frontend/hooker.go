@@ -47,19 +47,15 @@ func (RelayUpMsgHooker) OnInboundEvent(inputEvent cellnet.Event) (outputEvent ce
 		// 确定消息所在的服务
 		if rule := model.GetTargetService(msgType.Name()); rule != nil {
 
-			clientID := proto.ClientID{
-				ID:    inputEvent.Session().ID(),
-				SvcID: model.AgentSvcID,
-			}
-
 			switch rule.Mode {
 			case "pass":
+
 				// TODO 挑选一台
 				service.VisitRemoteService(func(ses cellnet.Session, ctx *service.RemoteServiceContext) bool {
 
 					if ctx.Name == rule.SvcName {
 						// 透传消息
-						relay.Relay(ses, incomingMsg, &clientID)
+						relay.Relay(ses, incomingMsg, inputEvent.Session().ID(), model.AgentSvcID)
 					}
 
 					return true
