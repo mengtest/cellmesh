@@ -15,7 +15,7 @@ type consulDiscovery struct {
 	// 与consul的服务保持实时同步
 	svcCache       sync.Map // map[string][]*discovery.ServiceDesc
 	svcCacheGuard  sync.Mutex
-	svcNameWatcher sync.Map //map[string]*watch.Plan
+	svcNameWatcher sync.Map // map[string]*watch.Plan
 
 	kvCache sync.Map // map[string]*KVPair
 
@@ -25,7 +25,7 @@ type consulDiscovery struct {
 	notifyMap sync.Map // key=mode+c value=chan struct{}
 
 	// 带缓冲kv
-	metaByKey sync.Map //map[string]*cacheValue
+	metaByKey sync.Map // map[string]*cacheValue
 }
 
 func (self *consulDiscovery) Raw() interface{} {

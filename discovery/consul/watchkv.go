@@ -50,7 +50,7 @@ func (self *consulDiscovery) onKVListChanged(u uint64, data interface{}) {
 			plan.Handler = self.onKVChanged
 			go plan.Run(self.config.Address)
 
-			//log.Debugf("add kv : '%s'", kv.Key)
+			// log.Debugf("add kv : '%s'", kv.Key)
 
 			self.kvCache.Store(kv.Key, &KVMeta{
 				Value: kv.Value,
@@ -81,7 +81,7 @@ func (self *consulDiscovery) onKVListChanged(u uint64, data interface{}) {
 			break
 		}
 
-		//log.Debugf("remove kv : '%s'", foundKey)
+		// log.Debugf("remove kv : '%s'", foundKey)
 
 		self.kvCache.Delete(foundKey)
 
@@ -107,7 +107,7 @@ func (self *consulDiscovery) onKVChanged(u uint64, data interface{}) {
 		return
 	}
 
-	//log.Debugf("modify kv : '%s'", kv.Key)
+	// log.Debugf("modify kv : '%s'", kv.Key)
 
 	if raw, ok := self.kvCache.Load(kv.Key); ok {
 		raw.(*KVMeta).Value = kv.Value
